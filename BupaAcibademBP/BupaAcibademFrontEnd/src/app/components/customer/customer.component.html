@@ -1,0 +1,91 @@
+<form class="a" novalidate #form="ngForm">
+
+  <input type="hidden" name="customerId"
+  [value]="service.formData.customerId">
+<div class="form-row">
+  <div class="form-group form-group col-md-6">
+    <label>Sigortalı Adı</label>
+    <input
+    class="form-control "
+    placeholder="İsim" name = "customerName"
+    #customerName="ngModel" [(ngModel)]="service.formData.name"
+    required [class.invalid]="customerName.invalid && customerName.touched">
+  </div>
+
+  <div class="form-group col-md-6 ">
+    <label>Sigortalı Soyadı</label>
+    <input
+    class="form-control"
+    placeholder="Soyisim" name = "customerSurname"
+    #customerSurname="ngModel" [(ngModel)]="service.formData.surname"
+    required [class.invalid]="customerSurname.invalid && customerSurname.touched">
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label>Kimlik Numarası</label>
+    <input
+    class="form-control"
+    placeholder="TC Kimlik" name = "customerIdentity"
+    #customerIdentity="ngModel" [(ngModel)]="service.formData.customerIdentity"
+    required maxlength="11" minlength="11"
+    [class.invalid]="customerIdentity.invalid && customerIdentity.touched">
+  </div>
+
+  <div class="form-group col-md-6">
+    <label>Cinsiyet</label>
+    <select class="form-control" #gender="ngModel"
+    [ngModelOptions]="{standalone: true}"
+    aria-label="Default select example"
+    [(ngModel)]="service.formData.gender">
+      <option selected>Kadın</option>
+      <option value="1">Erkek</option>
+    </select>
+  </div>
+</div>
+  <div class="form-group">
+    <label>Adres</label>
+    <input
+    class="form-control"
+    placeholder="Adres" name = "address"
+    #address="ngModel" [(ngModel)]="service.formData.address"
+    [class.invalid]="address.invalid && address.touched">
+  </div>
+
+  <div class="form-group">
+    <label>Doğum Tarihi</label>
+    <input
+    class="form-control"
+    placeholder="yyyy-aa-gg şeklinde yazın" name = "birthOfDate"
+    #birthOfDate="ngModel" [(ngModel)]="service.formData.birthOfDate">
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputsm">Telefon</label>
+      <input
+      class="form-control"
+      placeholder="Telefon" name = "phone"
+      #phone="ngModel" [(ngModel)]="service.formData.phone"
+      required maxlength="11" minlength="11"
+      [class.invalid]="phone.invalid && phone.touched">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Email</label>
+      <input type="email"
+      class="form-control  "
+      placeholder="Email" name = "email"
+      #email="ngModel" [(ngModel)]="service.formData.email"
+      required maxlength="30" minlength="3"
+      [class.invalid]="email.invalid && email.touched">
+    </div>
+</div>
+
+<div class="form-group">
+  <button routerLink="policy"
+  class="btn btn-primary btn-lg btn-block" Button
+   >Next</button>
+</div>
+
+</form>

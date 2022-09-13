@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Poliçeler</th>
+      <th>Fiyatlar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pd of service.list">
+      <td>{{pd.policyName}}</td>
+      <td>{{pd.policyPrice}}</td>
+    </tr>
+  </tbody>
+</table>
+
