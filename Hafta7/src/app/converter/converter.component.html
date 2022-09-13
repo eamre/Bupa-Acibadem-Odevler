@@ -1,0 +1,27 @@
+  <nav>
+    <h1>Currency Exchange</h1>
+  </nav>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <input type="number" [(ngModel)]="input" class="form-control" placeholder="Bir değer giriniz">
+    </div>
+    <div class="form-group col-md-3">
+      <select class="form-control" [(ngModel)]="inCurrency">
+        <option *ngFor="let currency of currencies">{{currency}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <input type="number" [ngModel]="convert(input,inCurrency,outCurrency)"
+      class="form-control" readonly>
+    </div>
+    <div class="form-group col-md-3">
+      <select class="form-control" [(ngModel)]="outCurrency">
+        <option *ngFor="let currency of currencies">{{currency}}</option>
+      </select>
+    </div>
+  </div>
+
